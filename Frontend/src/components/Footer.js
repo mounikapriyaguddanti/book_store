@@ -2,16 +2,16 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFacebook, faTwitter, faInstagram, faYoutube, faWhatsapp } from '@fortawesome/free-brands-svg-icons';
-import { faPhone, faEnvelope, faHome, faMapMarkerAlt, faHotel, faBoxOpen, faPlaneDeparture } from '@fortawesome/free-solid-svg-icons';
+import { faPhone, faEnvelope, faBook, faBookReader, faBookOpen, faPen, faComments } from '@fortawesome/free-solid-svg-icons';
 
 const Footer = () => {
   const navItems = [
-    { name: 'Home', icon: faHome, href: 'home' },
-    { name: 'Locations', icon: faMapMarkerAlt, href: 'locations' },
-    { name: 'Accommodations', icon: faHotel, href: '#accommodations' },
-    { name: 'Packages', icon: faBoxOpen, href: '#packages' },
-    { name: 'Travel Connections', icon: faPlaneDeparture, href: '#travel-connections' },
-    { name: 'Contact', icon: faEnvelope, href: '#contact' }
+    { name: 'Home', icon: faBook, href: 'home' },
+    { name: 'About', icon: faBookReader, href: 'about' },
+    { name: 'New Arrivals', icon: faBookOpen, href: 'new-arrivals' },
+    { name: 'Featured Authors', icon: faPen, href: 'featured-authors' },
+    { name: 'Feedback', icon: faComments, href: 'feedback' },
+    { name: 'Contact', icon: faEnvelope, href: 'contact' }
   ];
 
   const socialLinks = [
@@ -29,14 +29,14 @@ const Footer = () => {
           <div className="md:pr-6">
             <div className="flex items-center mb-4">
               <img
-                src="https://tse4.mm.bing.net/th?id=OIP.Cc3IgeTMqNI1ZTooo39thwHaGa&pid=Api&P=0&h=180"
+                src="http://www.toxel.com/wp-content/uploads/2015/07/bookhive03.jpg"
                 alt="Logo"
                 className="h-14 mr-3"
               />
-              <span className="text-white font-bold text-xl">Bharat Explorer</span>
+              <span className="text-white font-bold text-xl">Book Hive</span>
             </div>
             <p className="text-gray-300 text-sm leading-relaxed">
-              Discover the heart of India with our curated travel experiences. From bustling cities to serene landscapes, we've got your journey covered.
+            Immerse yourself in a world of literature and imagination. Explore our vast collection of books, from timeless classics to the latest bestsellers.
             </p>
           </div>
           <div>
@@ -65,7 +65,7 @@ const Footer = () => {
               </div>
               <div className="flex items-center text-gray-300">
                 <FontAwesomeIcon icon={faEnvelope} className="mr-3 opacity-75" />
-                <span>info@bharatexplorer.com</span>
+                <span>info@bookhive.com</span>
               </div>
             </div>
             <div>
@@ -89,7 +89,7 @@ const Footer = () => {
         </div>
         <div className="mt-8 pt-4 border-t border-gray-700 text-center text-white text-xs">
           <p>
-            &copy; {new Date().getFullYear()} Bharat Explorer. All rights reserved. | 
+            &copy; {new Date().getFullYear()} Book Hive. All rights reserved. | 
             <a href="#privacy" className="hover:text-gray-300 ml-1 mr-1 transition-colors">Privacy Policy</a> | 
             <a href="#terms" className="hover:text-gray-300 ml-1 transition-colors">Terms of Service</a>
           </p>

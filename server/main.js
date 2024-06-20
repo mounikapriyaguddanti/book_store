@@ -104,21 +104,28 @@ app.post('/purchase/:id', async (req, res) => {
   }
 });
 
-// Endpoint to edit book details
+
 app.put('/books/:id', async (req, res) => {
   try {
     const bookId = req.params.id;
-    const bookDetails = req.body;
+    const { bookName, publisherName, authorName, publisherDate, totalCopies, price, purchasedCopies } = req.body;
 
     const publisher = await Publisher.findOneAndUpdate(
       { 'authors.books._id': bookId },
-      { $set: { 'authors.$[author].books.$[book]': bookDetails } },
       {
-        arrayFilters: [
-          { 'author.books._id': bookId },
-          { 'book._id': bookId }
-        ],
-        new: true
+        $set: {
+          'authors.$[author].books.$[book].bookName': bookName,
+          'authors.$[author].books.$[book].publisherDate': publisherDate,
+          'authors.$[author].books.$[book].totalCopies': totalCopies,
+          'authors.$[author].books.$[book].price': price,
+          'authors.$[author].books.$[book].purchasedCopies': purchasedCopies,
+          'authors.$[author].authorName': authorName,
+          'publisherName': publisherName,
+        },
+      },
+      {
+        arrayFilters: [{ 'author.books._id': bookId }, { 'book._id': bookId }],
+        new: true,
       }
     );
 
@@ -126,11 +133,15 @@ app.put('/books/:id', async (req, res) => {
       return res.status(404).json({ message: 'Book not found' });
     }
 
-    res.status(200).json({ message: 'Book details updated successfully', book: publisher.authors.find(author => author.books.id(bookId)).books.id(bookId) });
+    res.status(200).json({
+      message: 'Book details updated successfully',
+      book: publisher.authors.find((author) => author.books.id(bookId)).books.id(bookId),
+    });
   } catch (error) {
     res.status(500).json({ message: 'Error updating book details', error });
   }
 });
+
 
 // Endpoint to delete a book
 app.delete('/books/:id', async (req, res) => {

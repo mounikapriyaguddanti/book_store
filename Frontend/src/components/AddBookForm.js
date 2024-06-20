@@ -3,6 +3,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import Navbar from './Navbar';
+import { useNavigate } from 'react-router-dom';
 
 const AddBookForm = () => {
   const [publisherName, setPublisherName] = useState('');
@@ -16,7 +17,13 @@ const AddBookForm = () => {
     price: 0
   });
   const [showSuccessModal, setShowSuccessModal] = useState(false);
-
+  const navigate = useNavigate();
+  const handleBack = () => {
+    navigate('/admin-dashboard');
+  };
+  const handleViewBookDetails = () => {
+    navigate('/bookdetails');
+  };
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -48,11 +55,27 @@ const AddBookForm = () => {
   };
 
   return (
-    <div>
-      <Navbar />
+    <div className="flex flex-col min-h-screen bg-gray-100">
+      <header className="bg-navy py-4 px-6 flex justify-between items-center">
+      <h1 className="text-white font-bold">Book Form</h1>
+      <div>
+      <button
+      className="bg-yellow-500 hover:bg-yellow-700 text-white font-bold py-2 px-4 rounded mr-2"
+      onClick={handleViewBookDetails}
+       >
+       View book details
+       </button>
+      <button
+      className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded"
+       onClick={handleBack}
+        >
+      Back
+      </button>
+      </div>
+      </header>                                                      
     <div className="flex justify-center items-center min-h-screen bg-gray-100">
       <div className="bg-white p-8 rounded-lg shadow-md w-full max-w-md">
-        <h2 className="text-2xl font-bold mb-6 text-center">Add Book</h2>
+        <h2 className="text-2xl font-bold mb-6 text-center">Add Book </h2>
         <form onSubmit={handleSubmit} className="space-y-4">
           <div>
             <label className="block text-gray-700">Publisher Name</label>
@@ -155,7 +178,7 @@ const AddBookForm = () => {
         </div>
       )}
     </div>
-    </div>
+   </div>
   );
 };
 

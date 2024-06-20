@@ -15,3 +15,24 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.pagination {
+  @apply flex justify-center mt-4;
+}
+
+.page-item:not(:last-child) {
+  @apply mr-2;
+}
+
+.page-link {
+  @apply inline-flex items-center px-4 py-2 text-sm font-medium text-gray-500 bg-white border border-gray-300 rounded-md hover:bg-gray-100 hover:text-gray-700;
+}
+
+.active .page-link {
+  @apply bg-blue-600 text-white;
+}
+
+.break-me {
+  @apply px-4 py-2;
+}
+

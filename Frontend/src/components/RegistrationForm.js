@@ -145,7 +145,7 @@ const RegistrationForm = () => {
           />
         </div>
         <div className="w-full lg:w-1/2 p-4 flex flex-col justify-center">
-          <h2 className="text-2xl font-bold mb-4 text-center lg:text-left">Register</h2>
+          <h2 className="text-2xl font-bold mb-4 text-center lg:text-left"><br/>Register</h2>
           {error && (
             <div className="bg-red-100 border-l-4 border-red-500 text-red-700 p-4 mb-4" role="alert">
               {error}
